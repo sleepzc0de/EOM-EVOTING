@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Master_Kandidat;
+use App\Models\MasterKandidat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
+
 
 class AdminController extends Controller
 {
@@ -12,9 +16,12 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $kandidat = MasterKandidat::all();
         $title = 'Admin Dashboard';
-        return view('admin.tambahkandidat',[
-            'title' => $title
+        // dd($kandidat);
+        return view('admin.dashboard',[
+            'title' => $title,
+            'kandidat' => $kandidat
         ]);
     }
 
@@ -23,7 +30,10 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Tambah kandidat';
+        return view('admin.tambahkandidat',[
+            'title' => $title
+        ]);
     }
 
     /**
@@ -31,13 +41,32 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->file('gambar')->store('profil-image');
+
+        $data = $request->validate([
+            'username' => 'required|max:255',
+            'unit_kerja' => 'required|min:3',
+            'gambar' => 'image|file|max:1024',
+        ]);
+
+        if($request->file('gambar')) {
+            $data['gambar'] = $request->file('gambar')->store('profil-images');
+        }
+       
+
+        $data['master_kandidat'] = auth()->user()->id;
+        $data['description']= Str::limit(strip_tags($request->description), 200);
+
+        MasterKandidat::create($data);
+
+        // dd('berhasil tambah data');
+        return redirect('admin')->with('success','Berhasil tambah data');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Master_Kandidat $master_Kandidat)
+    public function show(MasterKandidat $MasterKandidat)
     {
         //
     }
@@ -45,24 +74,54 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Master_Kandidat $master_Kandidat)
-    {
-        //
+    public function edit($id)
+{
+    $kandidat = MasterKandidat::findOrFail($id);
+    $title = 'Halaman edit admin';
+    return view('admin.editkandidat', [
+        'title' => $title,
+        'kandidat' => $kandidat
+    ]);
+}
+
+/**
+ * Update the specified resource in storage.
+ */
+public function update(Request $request, $id)
+{
+    $kandidat = MasterKandidat::findOrFail($id);
+    
+    $rules = [
+        'username' => 'required|max:255',
+        'unit_kerja' => 'required|min:3',
+        'gambar' => 'image|file|max:1024',
+    ];
+    $data = $request->validate($rules);
+
+    if ($request->hasFile('gambar')) {
+        if ($kandidat->gambar) {
+            Storage::delete('public/' . $kandidat->gambar);
+        }
+        $data['gambar'] = $request->file('gambar')->store('profil-images', 'public');
+    } else {
+        $data['gambar'] = $kandidat->gambar;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Master_Kandidat $master_Kandidat)
-    {
-        //
-    }
+    $kandidat->update($data);
+
+    return redirect('admin')->with('success', 'Kandidat updated successfully');
+}
+    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Master_Kandidat $master_Kandidat)
+    public function destroy($id)
     {
-        //
+        $kandidat = MasterKandidat::findOrFail($id);
+        $kandidat->delete();
+
+        return redirect()->back()->with('danger', 'Kandidat berhasil di hapus!!!');
+
     }
 }

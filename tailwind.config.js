@@ -1,4 +1,3 @@
-import withMT from "@material-tailwind/html/utils/withMT";
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
@@ -16,10 +15,3 @@ export default {
     },
     plugins: [],
 };
-// module.exports = {
-//     // ...
-//     plugins: [
-//         // ...
-//         require("@tailwindcss/forms"),
-//     ],
-// };

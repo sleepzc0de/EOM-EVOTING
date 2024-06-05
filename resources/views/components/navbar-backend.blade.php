@@ -8,9 +8,9 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
-              <x-nav-link href="/kandidat" :active="request()->is('kandidat')">Kandidat voting</x-nav-link>
+              <x-nav-link href="voting/{voting}" :active="request()->is('voting/{voting}')">Kandidat voting</x-nav-link>
               <x-nav-link href="/voting" :active="request()->is('voting')">Voting</x-nav-link>
-              <x-nav-link href="/admin" :active="request()->is('voting')">Tambah kandidat</x-nav-link>
+              <x-nav-link href="/admin" :active="request()->is('admin')">kandidat</x-nav-link>
             </div>
           </div>
         </div>
@@ -22,7 +22,7 @@
                 <button @click="isOpen = !isOpen" type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="absolute -inset-1.5"></span>
                   <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="img/user.jpg" alt="profil">
+                  <img class="h-8 w-8 rounded-full" src={{ asset('img/user.jpg') }} alt="profil">
                 </button>
               </div>
               <div x-show="isOpen"
@@ -64,7 +64,7 @@
       <div class="border-t border-gray-700 pb-3 pt-4">
         <div class="flex items-center px-5">
           <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="img/user.jpg" alt="profil">
+            <img class="h-10 w-10 rounded-full" src={{ asset('img/user.jpg') }} alt="profil">
           </div>
           <div class="ml-3">
             <div class="text-base font-medium leading-none text-white">{{ auth()->user()->username }} </div>
@@ -78,8 +78,9 @@
         <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
-          <x-nav-link href="/kandidat" :active="request()->is('kandidat')">Kandidat voting</x-nav-link>
+          <x-nav-link href="voting/{voting}" :active="request()->is('voting/{voting}')">Kandidat voting</x-nav-link>
           <x-nav-link href="/voting" :active="request()->is('voting')">Voting</x-nav-link>
+          <x-nav-link href="/admin" :active="request()->is('admin')">kandidat</x-nav-link>
         </div>
       </div>
     </div>

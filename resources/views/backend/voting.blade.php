@@ -1,7 +1,7 @@
 <x-layouts-backend>
   <x-slot:title>{{ $title }}</x-slot>
   <h1>
-    Untuk melihat deskripsi setiap kandidat silahkan <a class="btn text-blue-500 hover:text-blue-700 px-4 py-2 rounded-md" href="/kandidat">Klik Disini</a>
+    Untuk melihat deskripsi setiap kandidat silahkan <a class="btn text-blue-500 hover:text-blue-700 px-4 py-2 rounded-md" href="/voting/{ voting }">Klik Disini</a>
   </h1>
   @if(session()->has('success'))
   <div id="alert-1" class="flex items-center p-4 mb-4 text-sm text-green-800 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
@@ -56,8 +56,12 @@
         <tr class="hover:bg-gray-100">
           <td class="p-4 border border-gray-300">
             <div class="flex items-center gap-3">
-              <img src="img/user.jpg"
-                   alt="{{ $k->username }}" class="relative inline-block h-9 w-9 rounded-full object-cover object-center" />
+              @if($k->gambar)       
+                <img src="{{ asset('storage/' . $k->gambar) }}" alt="{{ $k->username }}" class="relative inline-block h-9 w-9 rounded-full object-cover object-center">        
+              @else
+                <img src="img/user.jpg"
+                alt="{{ $k->username }}" class="relative inline-block h-9 w-9 rounded-full object-cover object-center" />          
+              @endif             
               <div class="flex flex-col">
                 <p class="block font-sans text-sm antialiased font-normal leading-normal text-gray-900">
                   {{ $k->username }}

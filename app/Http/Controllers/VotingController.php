@@ -15,9 +15,12 @@ class VotingController extends Controller
     {
         $kandidat = MasterKandidat::all();
         $title = 'Voting';
+       
+        // dd($profil);
         return view ('backend.voting',[
             'title' => $title,
-            'kandidat' => $kandidat
+            'kandidat' => $kandidat,
+          
         ]);
     }
 
@@ -68,7 +71,13 @@ class VotingController extends Controller
      */
     public function show(Vote $vote)
     {
-        //
+        $kandidat = MasterKandidat::all();
+        $title = 'Daftar Kandidat';
+        // dd($kandidat);
+        return view('backend.kandidat',[
+            'title' => $title,
+            'kandidat' => $kandidat
+        ]);
     }
 
     /**
