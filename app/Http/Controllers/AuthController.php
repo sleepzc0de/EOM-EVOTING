@@ -64,14 +64,9 @@ class AuthController extends Controller
         if ($user->role === 'admin') {
             return redirect()->intended('/dashboard');
         } elseif ($user->role === 'user') {
-            return redirect()->intended('/');
+            return redirect()->intended('/pengguna');
         }
 
-        // if (Auth::attempt($credentials)) {
-        // $request->session()->regenerate();
-
-
-        // }
         return redirect()->back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->withInput();
