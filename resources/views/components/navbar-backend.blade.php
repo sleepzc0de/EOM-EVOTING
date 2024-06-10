@@ -10,7 +10,9 @@
               <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
               <x-nav-link href="voting/{voting}" :active="request()->is('voting/{voting}')">Kandidat voting</x-nav-link>
               <x-nav-link href="/voting" :active="request()->is('voting')">Voting</x-nav-link>
-              <x-nav-link href="/admin" :active="request()->is('admin')">kandidat</x-nav-link>
+              @if(Auth::check() && Auth::user()->is_admin)
+                <x-nav-link href="/admin" :active="request()->is('admin')">Kandidat</x-nav-link>
+              @endif
             </div>
           </div>
         </div>
@@ -86,7 +88,9 @@
           <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
           <x-nav-link href="voting/{voting}" :active="request()->is('voting/{voting}')">Kandidat voting</x-nav-link>
           <x-nav-link href="/voting" :active="request()->is('voting')">Voting</x-nav-link>
-          <x-nav-link href="/admin" :active="request()->is('admin')">kandidat</x-nav-link>
+          @if(Auth::check() && Auth::user()->is_admin)
+            <x-nav-link href="/admin" :active="request()->is('admin')">Kandidat</x-nav-link>
+          @endif
         </div>
         <div class="mt-3 space-y-1 px-2">
           <x-nav-link href="profil" :active="request()->is('#')">Your Profil</x-nav-link>

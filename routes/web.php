@@ -29,4 +29,4 @@ Route::post('/profil/upadte', [ProfilController::class,'update'])->name('profil.
 Route::get('/changepassword',[ProfilController::class,'changePassword'])->middleware('auth');
 Route::post('/gantipassword',[ProfilController::class,'gantiPassword'])->middleware('auth');
 
-Route::resource('admin', AdminController::class);
+Route::resource('admin', AdminController::class)->middleware('admin');

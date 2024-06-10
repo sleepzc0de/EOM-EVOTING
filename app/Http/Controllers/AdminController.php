@@ -30,6 +30,10 @@ class AdminController extends Controller
      */
     public function create()
     {
+        $kandidat = MasterKandidat::count();
+        if ($kandidat >= 3) {
+            return redirect()->route('admin.index')->with('danger', 'Anda hanya dapat menambahkan maksimal 3 kandidat.');
+        }
         $title = 'Tambah kandidat';
         return view('admin.tambahkandidat',[
             'title' => $title
