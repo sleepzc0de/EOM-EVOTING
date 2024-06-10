@@ -56,7 +56,7 @@ class ProfilController extends Controller
         ->update($data);
         // $user->update($data);
 
-        return redirect('profil')->with('success', 'Berhasil mengubah data');
+        return redirect('profil')->with('success', 'Berhasil Mengubah Data');
     }
 
     public function changePassword()
@@ -107,7 +107,7 @@ class ProfilController extends Controller
         $user = auth()->user();
 
         if (!Hash::check($request->current_password, $user->password)) {
-            return redirect()->back()->with('error', 'Password lama salah!!!');
+            return redirect()->back()->with('error', 'Password Lama Salah!!!');
             }
         
         $rules = [
@@ -117,7 +117,7 @@ class ProfilController extends Controller
             ];
 
         $messages = [
-            'password.confirmed' => 'Password anda tidak sesuai!!!',
+            'password.confirmed' => 'Password Anda Tidak Sesuai!!!',
         ];
 
         $data = $request->validate($rules, $messages);
@@ -156,6 +156,6 @@ class ProfilController extends Controller
 
         User::where('id', $user->id)->update($data);
 
-        return redirect('profil')->with('success', 'Berhasil mengubah data');
+        return redirect('profil')->with('success', 'Berhasil Mengubah Password');
     }
 }
