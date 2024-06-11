@@ -16,18 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         // Membuat role admin
         User::create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('$2y$10$55DNxILkwBB2EuBgQKWJwOJWiG1sY8Eceo1zY5jTes.uka1Llnj9i'), 
+            'name' => 'petugas',
+            'email' => 'petugas@gmail.com',
+            'password' => Hash::make('123456'),
             'role' => 'admin',
-        ]);
-
-        // Membuat role user
-        User::create([
-            'name' => 'budi',
-            'email' => 'budi@gmail.com',
-            'password' => Hash::make('$2y$10$55DNxILkwBB2EuBgQKWJwOJWiG1sY8Eceo1zY5jTes.uka1Llnj9i'), 
-            'role' => 'user',
         ]);
     }
 }

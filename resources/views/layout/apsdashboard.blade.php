@@ -52,7 +52,7 @@
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
                 </li>
-                <li class="nav-item menu-items">
+                <li class="siderbar-item dark-mode">
                     <a class="nav-link" href="{{ route('pengguna') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-poll-box"></i>
@@ -60,7 +60,7 @@
                         <span class="menu-title">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-item menu-items">
+                <li class="siderbar-item dark-mode">
                     <a class="nav-link" href="{{ route('vote.index') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-vote"></i>
@@ -68,7 +68,7 @@
                         <span class="menu-title">Vote</span>
                     </a>
                 </li>
-                <li class="nav-item menu-items">
+                <li class="siderbar-item dark-mode">
                     <a class="nav-link" href="{{ route('hasil.vote') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-checkbox-multiple-marked-circle-outline"></i>
@@ -76,7 +76,7 @@
                         <span class="menu-title">Hasil Voting</span>
                     </a>
                 </li>
-                <li class="nav-item menu-items">
+                <li class="siderbar-item dark-mode">
                     <a class="nav-link" href="{{ route('login') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-exit-to-app"></i>
