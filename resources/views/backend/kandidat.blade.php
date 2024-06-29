@@ -30,7 +30,7 @@
     @csrf
     <div class="container">
       @forelse ($kandidat as $k)
-      <div class="conten">
+      <div class="conten p-3">
         <div class="flip flip-vertical">
           <div class="front">
             @if($k->gambar)       
@@ -49,7 +49,7 @@
             <p>{{ $k->description }}</p>
           </div>
         </div>
-        <p class="p-4 border border-gray-300 text-center">
+        <p class="p-2 mt-5 border border-gray-400 text-center rounded-md">
           <input type="radio" name="vote" value="{{ $k->id }}" data-username="{{ $k->username }}" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
         </p>      
       </div>
@@ -59,8 +59,8 @@
       </div>
       @endforelse
     </div> 
-    <div class="mt-4">
-      <button type="submit" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+    <div class="p-2">
+      <button type="submit" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-3">
         Submit Vote
       </button>
     </div> 
