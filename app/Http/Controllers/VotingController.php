@@ -13,15 +13,7 @@ class VotingController extends Controller
      */
     public function index()
     {
-        $kandidat = MasterKandidat::all();
-        $title = 'Voting';
        
-        // dd($profil);
-        return view ('backend.voting',[
-            'title' => $title,
-            'kandidat' => $kandidat,
-          
-        ]);
     }
 
     /**
@@ -62,7 +54,7 @@ class VotingController extends Controller
         // dd('berhasil vote');
     
         // Tampilkan pesan sukses atau redirect ke halaman lain
-        return redirect('/voting')->with('success', 'Voting berhasil.');
+        return redirect('voting/{voting}')->with('success', 'Voting berhasil.');
     
     }
 

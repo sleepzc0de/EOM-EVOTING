@@ -8,7 +8,7 @@ class HomepageController extends Controller
 {
     public function welcome()
     {
-        $title = 'Home';
+        $title = 'E-Voting Kementerian Keuangan';
         return view('homepage',[
             'title' => $title
         ]);

@@ -13,7 +13,7 @@
         </div>
       </div>
         <div class="hidden md:block">
-          <x-nav-link href="/login" :active="request()->is('login')"><i class="fas fa-sign-in-alt"></i> Login</x-nav-link>
+          <x-nav-link href="/login" :active="request()->is('login')"><i class="fas fa-sign-in-alt"></i>  Sig in</x-nav-link>
         </div>  
       <div class="-mr-2 flex md:hidden">
         <!-- Mobile menu button -->
@@ -39,7 +39,7 @@
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
       <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-      <x-nav-link href="/login" :active="request()->is('login')"><i class="fas fa-sign-in-alt"></i> Login</x-nav-link>
+      <x-nav-link href="/login" :active="request()->is('login')"><i class="fas fa-sign-in-alt"></i> Sig in</x-nav-link>
 
   
     </div>

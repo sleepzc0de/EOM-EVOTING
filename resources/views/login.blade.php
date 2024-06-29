@@ -34,7 +34,7 @@
             <div class="image-container">
                 <img src="{{ asset('img/logo.png') }}" alt="logo" class="image">
             </div>
-            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 mb-1">Sign in to your account</h2>
+            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 mb-1">Sign in to E-Voting</h2>
         </div>      
         <div class="mt-5 flex justify-center items-center bg-gray-100">
             <div class="w-full max-w-sm p-6 bg-white shadow-lg rounded-lg">
@@ -74,7 +74,7 @@
                         </div>
                         
                         <div>
-                            <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
+                            <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sig in</button>
                         </div>
                     </form>
                     <p class="mt-10 text-center text-sm text-gray-500">

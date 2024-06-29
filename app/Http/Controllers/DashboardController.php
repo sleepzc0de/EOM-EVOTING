@@ -10,7 +10,7 @@ class DashboardController extends Controller
     public function dashboard()
     {
         $kandidat = MasterKandidat::all();
-        $title = 'Welcome Dashboard';
+        $title = 'Welcome To E-Voting';
         // dd($kandidat);
         return view('backend.dashboard',[
             'kandidat' => $kandidat,

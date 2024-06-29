@@ -8,7 +8,7 @@ class AboutController extends Controller
 {
     public function about()
     {
-        $title = 'About';
+        $title = 'Tentang E-Voting Kementerian Keuangan';
         return view('about',[
             'title' => $title
         ]);

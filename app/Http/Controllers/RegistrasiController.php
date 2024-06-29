@@ -12,7 +12,7 @@ class RegistrasiController extends Controller
     public function registrasi()
     {
         $title = 'Registrasi';
-        return view('registrasi',[
+        return view('registrasi', [
             'title' => $title
         ]);
     }

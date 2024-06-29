@@ -9,7 +9,6 @@
             <div class="ml-10 flex items-baseline space-x-4">
               <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
               <x-nav-link href="voting/{voting}" :active="request()->is('voting/{voting}')">Kandidat voting</x-nav-link>
-              <x-nav-link href="/voting" :active="request()->is('voting')">Voting</x-nav-link>
               @if(Auth::check() && Auth::user()->is_admin)
                 <x-nav-link href="/admin" :active="request()->is('admin')">Kandidat</x-nav-link>
               @endif
@@ -87,7 +86,6 @@
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
           <x-nav-link href="voting/{voting}" :active="request()->is('voting/{voting}')">Kandidat voting</x-nav-link>
-          <x-nav-link href="/voting" :active="request()->is('voting')">Voting</x-nav-link>
           @if(Auth::check() && Auth::user()->is_admin)
             <x-nav-link href="/admin" :active="request()->is('admin')">Kandidat</x-nav-link>
           @endif
