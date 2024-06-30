@@ -11,7 +11,7 @@ class RegistrasiController extends Controller
 {
     public function registrasi()
     {
-        $title = 'Registrasi';
+        $title = 'sign up';
         return view('registrasi', [
             'title' => $title
         ]);
@@ -31,6 +31,6 @@ class RegistrasiController extends Controller
       $data['password']= Hash::make($data['password']);
       User::create($data);
 
-        return redirect('/registrasi')->with('success','Registrasi success, Silahkan login :)');
+        return redirect('/login')->with('success','Success, Silahkan login :)');
     }
 }

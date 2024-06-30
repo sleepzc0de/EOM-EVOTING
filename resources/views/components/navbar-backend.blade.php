@@ -7,10 +7,10 @@
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-              <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
-              <x-nav-link href="voting/{voting}" :active="request()->is('voting/{voting}')">Kandidat voting</x-nav-link>
+              <x-nav-link href="{{ route('dashboard') }}" :active="request()->is('dashboard')">Dashboard</x-nav-link>
+              <x-nav-link href="{{ route('voting.index') }}" :active="request()->is('voting')">Kandidat voting</x-nav-link>
               @if(Auth::check() && Auth::user()->is_admin)
-                <x-nav-link href="/admin" :active="request()->is('admin')">Kandidat</x-nav-link>
+                <x-nav-link href="{{ route('admin.index') }}" :active="request()->is('admin')">Kandidat</x-nav-link>
               @endif
             </div>
           </div>
@@ -41,7 +41,7 @@
               x-transition:leave-end="opacity-0 scale-95"
               class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                <a href="profil" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                <a href="{{ route('profil.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
                 <a href="/logout" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Logout</a>
               </div>
             </div>
@@ -84,14 +84,14 @@
         </div>
         <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3 mt-3">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-          <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-nav-link>
-          <x-nav-link href="voting/{voting}" :active="request()->is('voting/{voting}')">Kandidat voting</x-nav-link>
+          <x-nav-link href="{{ route('dashboard') }}" :active="request()->is('dashboard')">Dashboard</x-nav-link>
+          <x-nav-link href="{{ route('voting.index') }}" :active="request()->is('voting')">Kandidat voting</x-nav-link>
           @if(Auth::check() && Auth::user()->is_admin)
-            <x-nav-link href="/admin" :active="request()->is('admin')">Kandidat</x-nav-link>
+            <x-nav-link href="{{ route('admin.index') }}" :active="request()->is('admin')">Kandidat</x-nav-link>
           @endif
         </div>
         <div class="mt-3 space-y-1 px-2">
-          <x-nav-link href="profil" :active="request()->is('#')">Your Profil</x-nav-link>
+          <x-nav-link href="{{ route('profil.index') }}" :active="request()->is('profil')">Your Profil</x-nav-link>
           <x-nav-link href="/logout" :active="request()->is('logout')">Logout</x-nav-link>
         </div>
       </div>

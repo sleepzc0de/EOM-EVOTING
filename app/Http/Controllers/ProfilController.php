@@ -43,6 +43,8 @@ class ProfilController extends Controller
 
         $data = $request->validate($rules);
 
+        // dd($data);
+
         if ($request->hasFile('gambar')) {
             if ($user->gambar) {
                 Storage::delete('public/' . $user->gambar);

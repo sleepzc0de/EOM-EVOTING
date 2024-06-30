@@ -1,23 +1,22 @@
 <x-layouts-backend>
     <x-slot:title>{{ $title }}</x-slot>
-    <a class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="/profil">Kembali</a>
     @if(session()->has('error'))
     <div id="alert-error" class="flex items-center p-4 mb-4 text-sm text-red-800 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800 mt-3" role="alert">
-        <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-4h2v2H9v-2zm0-8h2v6H9V6z" clip-rule="evenodd"></path></svg>
+        <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 000 16zm-1-4h2v2H9v-2zm0-8h2v6H9V6z" clip-rule="evenodd"></path></svg>
         <span class="sr-only">Error</span>
         <div>
             {{ session('error') }}
         </div>
         <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-red-100 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-red-200 dark:text-red-600 dark:hover:bg-red-300" data-dismiss-target="#alert-error" aria-label="Close">
           <span class="sr-only">Close</span>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 011.414 0L10 8.586l4.293-4.293a1 1 011.414 1.414L11.414 10l4.293 4.293a1 1 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 01-1.414-1.414L8.586 10 4.293 5.707a1 1 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
     </div>
   @endif
   @if ($errors->any())
         <div id="alert-error" class="flex items-center p-4 mb-4 text-sm text-red-800 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800 mt-3" role="alert">
             <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-4h2v2H9v-2zm0-8h2v6H9V6z" clip-rule="evenodd"></path>
+                <path fill-rule="evenodd" d="M10 18a8 8 000-16 8 8 000 16zm-1-4h2v2H9v-2zm0-8h2v6H9V6z" clip-rule="evenodd"></path>
             </svg>
             <span class="sr-only">Error</span>
             <div>
@@ -30,7 +29,7 @@
             <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-red-100 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-red-200 dark:text-red-600 dark:hover:bg-red-300" data-dismiss-target="#alert-error" aria-label="Close">
                 <span class="sr-only">Close</span>
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 011.414 0L10 8.586l4.293-4.293a1 1 011.414 1.414L11.414 10l4.293 4.293a1 1 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 01-1.414-1.414L8.586 10 4.293 5.707a1 1 010-1.414z" clip-rule="evenodd"></path>
                 </svg>
             </button>
         </div>
@@ -41,28 +40,51 @@
             <div class="border-b border-gray-900/10 pb-12">
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <label for="new_password" class="block text-sm font-medium leading-6 text-gray-900">Password Lama</label>
-                        <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="password" name="current_password" id="current_password" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-                            </div>
+                        <label for="current_password" class="block text-sm font-medium leading-6 text-gray-900">Password Lama</label>
+                        <div class="mt-2 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                            <input type="password" name="current_password" id="current_password" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            <button type="button" class="password-toggle bg-transparent border-none focus:outline-none px-2" data-target="current_password">
+                                <!-- Icon mata terbuka -->
+                                    <svg id="openEye" class="h-5 w-5 text-gray-500 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M19 12h.01M9 12h.01M5 12h.01M12 15.5c3.5 0 5-1.5 5-1.5M12 15.5c-3.5 0-5-1.5-5-1.5M12 8.5c3.5 0 5 1.5 5 1.5M12 8.5c-3.5 0-5 1.5-5 1.5"></path>
+                                    </svg>
+                                    <!-- Icon mata tertutup -->
+                                    <svg id="closedEye" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M19 12h.01M9 12h.01M5 12h.01M12 15.5c3.5 0 5-1.5 5-1.5M12 15.5c-3.5 0-5-1.5-5-1.5M12 8.5c3.5 0 5 1.5 5 1.5M12 8.5c-3.5 0-5 1.5-5 1.5"></path>
+                                    </svg>
+                            </button>
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password baru
-                        </label>
-                        <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="password" name="password" id="password" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-                            </div>
+                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password Baru</label>
+                        <div class="mt-2 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                            <input type="password" name="password" id="password" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            <button type="button" class="password-toggle bg-transparent border-none focus:outline-none px-2" data-target="password">
+                                <!-- Icon mata terbuka -->
+                                    <svg id="openEye" class="h-5 w-5 text-gray-500 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M19 12h.01M9 12h.01M5 12h.01M12 15.5c3.5 0 5-1.5 5-1.5M12 15.5c-3.5 0-5-1.5-5-1.5M12 8.5c3.5 0 5 1.5 5 1.5M12 8.5c-3.5 0-5 1.5-5 1.5"></path>
+                                    </svg>
+                                    <!-- Icon mata tertutup -->
+                                    <svg id="closedEye" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M19 12h.01M9 12h.01M5 12h.01M12 15.5c3.5 0 5-1.5 5-1.5M12 15.5c-3.5 0-5-1.5-5-1.5M12 8.5c3.5 0 5 1.5 5 1.5M12 8.5c-3.5 0-5 1.5-5 1.5"></path>
+                                    </svg>
+                            </button>
                         </div>
                     </div>
                     <div class="sm:col-span-4">
                         <label for="password_confirmation" class="block text-sm font-medium leading-6 text-gray-900">Ulangi Password</label>
-                        <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="password" name="password_confirmation" id="password_confirmation" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-                            </div>
+                        <div class="mt-2 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            <button type="button" class="password-toggle bg-transparent border-none focus:outline-none px-2" data-target="password_confirmation">
+                                <!-- Icon mata terbuka -->
+                                    <svg id="openEye" class="h-5 w-5 text-gray-500 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M19 12h.01M9 12h.01M5 12h.01M12 15.5c3.5 0 5-1.5 5-1.5M12 15.5c-3.5 0-5-1.5-5-1.5M12 8.5c3.5 0 5 1.5 5 1.5M12 8.5c-3.5 0-5 1.5-5 1.5"></path>
+                                    </svg>
+                                    <!-- Icon mata tertutup -->
+                                    <svg id="closedEye" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M19 12h.01M9 12h.01M5 12h.01M12 15.5c3.5 0 5-1.5 5-1.5M12 15.5c-3.5 0-5-1.5-5-1.5M12 8.5c3.5 0 5 1.5 5 1.5M12 8.5c-3.5 0-5 1.5-5 1.5"></path>
+                                    </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -78,9 +100,22 @@
 
 <script>
     document.querySelectorAll('[data-dismiss-target]').forEach(function(button) {
-    button.addEventListener('click', function() {
-        var target = document.querySelector(button.getAttribute('data-dismiss-target'));
-        target.remove();
+        button.addEventListener('click', function() {
+            var target = document.querySelector(button.getAttribute('data-dismiss-target'));
+            target.remove();
+        });
     });
-});
+
+    document.querySelectorAll('.password-toggle').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var targetInput = document.getElementById(button.getAttribute('data-target'));
+            if (targetInput.type === 'password') {
+                targetInput.type = 'text';
+                button.querySelector('svg').setAttribute('stroke', 'currentColor');
+            } else {
+                targetInput.type = 'password';
+                button.querySelector('svg').setAttribute('stroke', 'currentColor');
+            }
+        });
+    });
 </script>

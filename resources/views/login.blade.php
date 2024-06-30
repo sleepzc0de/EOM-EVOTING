@@ -78,7 +78,7 @@
                         </div>
                     </form>
                     <p class="mt-10 text-center text-sm text-gray-500">
-                        Belum punya akun silahkan Registrasi |
+                        Belum punya akun silahkan sign up |
                         <a href="/registrasi" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Klik disini</a>
                     </p>         
                 </div>

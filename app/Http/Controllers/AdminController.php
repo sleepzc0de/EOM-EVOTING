@@ -50,8 +50,10 @@ class AdminController extends Controller
         $data = $request->validate([
             'username' => 'required|max:255',
             'unit_kerja' => 'required|min:3',
+            'no_telpon' => 'required|numeric',
             'gambar' => 'image|file|max:1024',
         ]);
+        // dd($data);
 
         if($request->file('gambar')) {
             $data['gambar'] = $request->file('gambar')->store('profil-images');
@@ -59,7 +61,7 @@ class AdminController extends Controller
        
 
         $data['master_kandidat'] = auth()->user()->id;
-        $data['description']= Str::limit(strip_tags($request->description), 200);
+        $data['description']= Str::limit(strip_tags($request->description));
 
         MasterKandidat::create($data);
 
@@ -70,10 +72,16 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(MasterKandidat $MasterKandidat)
-    {
-        //
-    }
+    public function show($id)
+{
+    $kandidat = MasterKandidat::findOrFail($id);
+    $title = 'Show Kandidat';
+    // dd($kandidat);
+    return view('admin.show', [
+        'kandidat' => $kandidat,
+        'title' => $title
+    ]);
+}
 
     /**
      * Show the form for editing the specified resource.

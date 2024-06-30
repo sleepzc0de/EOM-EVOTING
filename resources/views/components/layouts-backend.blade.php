@@ -11,15 +11,14 @@
     <title>{{ $title }} | {{ auth()->user()->username }}</title>
 </head>
 <body class="h-full">
-<x-navbar-backend></x-navbar-backend>
-<x-header-backend>{{ $title }}</x-header-backend>
-<div class="min-h-full">
-    <main>
-      <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        {{ $slot }}
-      </div>
-    </main>
-  </div>
+    <x-navbar-backend></x-navbar-backend>
+    <x-header-backend>{{ $title }}</x-header-backend>
+    <div class="min-h-full">
+        <main>
+            <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+                {{ $slot }}
+            </div>
+        </main>
+    </div>
 </body>
 </html>
-

@@ -12,7 +12,7 @@
           Live Grafik
         </h6>
         <p class="block max-w-sm font-sans text-sm font-normal leading-normal text-gray-700 antialiased">
-          Grafik voting setiap kandidat bisa dilihat di bawah ini
+          Grafik voting kandidat dapat dilihat di bawah ini
         </p>
       </div>
     </div>

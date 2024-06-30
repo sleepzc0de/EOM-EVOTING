@@ -13,7 +13,13 @@ class VotingController extends Controller
      */
     public function index()
     {
-       
+        $kandidat = MasterKandidat::all();
+        $title = 'Daftar Kandidat';
+        // dd($kandidat);
+        return view('backend.kandidat',[
+            'title' => $title,
+            'kandidat' => $kandidat
+        ]);
     }
 
     /**
@@ -54,21 +60,20 @@ class VotingController extends Controller
         // dd('berhasil vote');
     
         // Tampilkan pesan sukses atau redirect ke halaman lain
-        return redirect('voting/{voting}')->with('success', 'Voting berhasil.');
+        return redirect('voting')->with('success', 'Voting berhasil.');
     
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Vote $vote)
+    public function show($id)
     {
-        $kandidat = MasterKandidat::all();
-        $title = 'Daftar Kandidat';
-        // dd($kandidat);
-        return view('backend.kandidat',[
-            'title' => $title,
-            'kandidat' => $kandidat
+        $kandidat = MasterKandidat::findOrFail($id);
+        $title = 'Show Kandidat';
+        return view('backend.show',[
+            'kandidat' => $kandidat,
+            'title' => $title
         ]);
     }
 
@@ -95,4 +100,5 @@ class VotingController extends Controller
     {
         //
     }
+
 }

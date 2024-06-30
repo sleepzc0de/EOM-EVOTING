@@ -49,6 +49,8 @@
             <p>{{ $k->description }}</p>
           </div>
         </div>
+        <a class="flex justify-center items-center mt-4 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        href="{{ route('voting.show', $k->id) }}">Detail</a>
         <p class="p-2 mt-5 border border-gray-400 text-center rounded-md">
           <input type="radio" name="vote" value="{{ $k->id }}" data-username="{{ $k->username }}" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
         </p>      
@@ -57,12 +59,14 @@
       <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
         <span class="font-medium">Tidak ada kandidat yang tersedia.</span>
       </div>
-      @endforelse
     </div> 
+    @endforelse
+  </div>
     <div class="p-2">
       <button type="submit" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-3">
         Submit Vote
       </button>
+      
     </div> 
   </form>
 </x-layouts-backend>

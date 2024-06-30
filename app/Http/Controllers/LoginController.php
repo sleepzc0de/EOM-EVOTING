@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function login()
     {
-        $title = 'Login';
+        $title = 'sign in';
         return view('login',[
             'title' => $title
         ]);
@@ -29,7 +29,7 @@ class LoginController extends Controller
             return redirect()->intended('/dashboard');
         }
         
-        return back()->with('LoginError','login eror');
+        return back()->with('sign in Error','sign in eror');
     }
 
     public Function logout(Request $request) {

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('master_kandidat', function (Blueprint $table) {
             $table->id();
             $table->string('username', 255)->notNull();
+            $table->string('no_telpon', 15)->nullable();
             $table->text('description')->nullable();
             $table->string('gambar')->nullable();
             $table->string('unit_kerja', 255)->nullable();

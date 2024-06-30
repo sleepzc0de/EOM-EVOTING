@@ -21,7 +21,7 @@ Route::get('/registrasi',[RegistrasiController::class,'registrasi'])->name('regi
 Route::post('/registrasi', [RegistrasiController::class,'store'])->name('register.store')->middleware('guest');
 
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard')->middleware('auth');
-Route::resource('voting', VotingController::class)->middleware('auth');
+Route::resource('/voting', VotingController::class)->middleware('auth');
 
 Route::get('/profil', [ProfilController::class,'index'])->name('profil.index')->middleware('auth');
 Route::get('/profil/{profil}/edit', [ProfilController::class,'edit'])->name('profil.edit')->middleware('auth');

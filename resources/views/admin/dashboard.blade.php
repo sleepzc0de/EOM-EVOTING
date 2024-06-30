@@ -44,9 +44,6 @@
                     <p class="block font-sans text-sm antialiased font-normal leading-none text-gray-900">Nama</p>
                 </th>
                 <th class="p-4 border border-gray-300">
-                    <p class="block font-sans text-sm antialiased font-normal leading-none text-gray-900">Deskripsi</p>
-                </th>
-                <th class="p-4 border border-gray-300">
                     <p class="block font-sans text-sm antialiased font-normal leading-none text-gray-900">Unit Kerja</p>
                 </th>
                 <th class="p-4 border border-gray-300">
@@ -58,7 +55,7 @@
             @foreach ($kandidat as $k)
             <tr class="hover:bg-gray-100">
                 <td class="p-4 border border-gray-300">
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 ">
                         @if($k->gambar)       
                             <img src="{{ asset('storage/' . $k->gambar) }}" alt="{{ $k->username }}" class="relative inline-block h-9 w-9 rounded-full object-cover object-center">        
                         @else
@@ -71,22 +68,18 @@
                 </td>
                 <td class="p-4 border border-gray-300">
                     <div class="flex flex-col">
-                        <p class="block font-sans text-sm antialiased font-normal leading-normal text-gray-900 break-words">{{ $k->description }}</p>
-                    </div>
-                </td>
-                <td class="p-4 border border-gray-300">
-                    <div class="flex flex-col">
                         <p class="block font-sans text-sm antialiased font-normal leading-normal text-gray-900">{{ $k->unit_kerja }}</p>
                     </div>
                 </td>
                 <td class="p-4 border border-gray-300">
-                  <div class="flex flex-col space-y-2">
+                  <div class="flex flex-col space-y-2 justify-center items-center">
+                      <a class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="{{ route('admin.show', $k->id) }}">Show Kandidat</a> 
+                      <a class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="{{ route('admin.edit', $k->id) }}">Edit Kandidat</a> 
                       <form id="deleteForm{{ $k->id }}" action="{{ route('admin.destroy', $k->id) }}" method="POST">
                           @csrf
                           @method('DELETE')
                           <button type="button" onclick="confirmDelete({{ $k->id }})" class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Hapus</button>
                       </form>
-                      <a class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="{{ route('admin.edit', $k->id) }}">Edit Kandidat</a> 
                   </div>
               </td>
             </tr>
